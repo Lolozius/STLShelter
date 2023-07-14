@@ -3,4 +3,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'mainpage/index.html')
+    return render(request, 'includes/header.html')
+
+
+def post(request):
+
+    pass
