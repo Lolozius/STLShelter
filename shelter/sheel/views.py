@@ -3,9 +3,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, 'includes/header.html')
+    return render(request, 'page/index.html')
 
 
 def post(request):
-
-    pass
+    return render(request, 'page/create_post.html')
