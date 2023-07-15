@@ -17,4 +17,5 @@ class Post(models.Model):
         verbose_name='Дата публикации',
         auto_now_add=True
     ),
-    document = models.FileField(upload_to='documents/')
+    document = models.FileField(upload_to='documents/'),
+    #image = models.ImageField('Фото', blank=True, null=True,)
