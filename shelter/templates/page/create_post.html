@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<form class="was-validated">
+<form method="post" class="was-validated">
+  {% csrf_token %}
   <div class="mb-3">
-    <label for="validationTextarea" class="form-label">Textarea</label>
-    <textarea class="form-control" id="validationTextarea" placeholder="Name" required></textarea>
+    <label for="validationTextarea" class="form-label">Название</label>
+    <textarea  class="form-control" id="validationTextarea" ></textarea>
     <div class="invalid-feedback">
       Please enter a message in the textarea.
     </div>
   </div>
   <div class="mb-3">
-    <input type="file" class="form-control" aria-label="file example" required>
+    <input type="file" class="form-control" aria-label="file example" {{form.document}}>
     <div class="invalid-feedback">Example invalid form file feedback</div>
   </div>
 
   <div class="mb-3">
-    <button class="btn btn-primary" type="submit" disabled>Submit form</button>
+    <button class="btn btn-primary" type="submit" disabled>Submit</button>
   </div>
 </form>
 {% endblock content %}
