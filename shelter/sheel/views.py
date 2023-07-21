@@ -17,4 +17,4 @@ def post(request):
     post = form.save(commit=False)
     post.author = request.user
     post.save()
-    return redirect('page/index.html')
+    return redirect('page/index.html', post.author)

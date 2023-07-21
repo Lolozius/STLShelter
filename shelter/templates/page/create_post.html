@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="post" class="was-validated">
+<form class="was-validated" action='{% url "shells:form" %}' method="post">
   {% csrf_token %}
-  <div class="mb-3">
-    <label for="validationTextarea" class="form-label">Название</label>
-    <textarea  class="form-control" id="validationTextarea" ></textarea>
-    <div class="invalid-feedback">
-      Please enter a message in the textarea.
-    </div>
-  </div>
-  <div class="mb-3">
-    <input type="file" class="form-control" aria-label="file example" {{form.document}}>
-    <div class="invalid-feedback">Example invalid form file feedback</div>
-  </div>
+  {% for field in form %}
+      <div class="mb-3">
+        {% if field.errors %}
 
+        {% endif %}
+        {{ field.label }}
+        {{ field }}
+  {% endfor %}
+    </div>
   <div class="mb-3">
-    <button class="btn btn-primary" type="submit" disabled>Submit</button>
+    <button class="btn btn-primary">Submit form</button>
   </div>
 </form>
 {% endblock content %}
