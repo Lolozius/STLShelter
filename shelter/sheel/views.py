@@ -10,11 +10,11 @@ def index(request):
 def post(request):
     form = PostForm(
         request.POST or None,
-        files=request.FILES or None,
+        request.FILES or None,
     )
     if not form.is_valid():
         return render(request, 'page/create_post.html', {'form': form})
     post = form.save(commit=False)
     post.author = request.user
     post.save()
-    return redirect('page/index.html', post.author)
+    return redirect('shells:index')

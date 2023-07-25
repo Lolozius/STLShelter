@@ -6,16 +6,16 @@ User = get_user_model()
 
 
 class Post(models.Model):
+    name = models.CharField(
+        max_length=255,
+        blank=False,
+        null=False,
+        verbose_name='Имя',
+        help_text='Назовите обьект',
+    )
     text = models.TextField(
         verbose_name='Текст с описание',
         help_text='Распишите описание обьекта',
-    )
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='author',
-    )
-    pub_date = models.DateField(
-        verbose_name='Дата публикации',
-        auto_now_add=True
     )
     document = models.FileField(upload_to='documents/')
     #image = models.ImageField('Фото', blank=True, null=True,)

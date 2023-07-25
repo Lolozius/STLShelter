@@ -4,15 +4,12 @@
   {% csrf_token %}
   {% for field in form %}
       <div class="mb-3">
-        {% if field.errors %}
-
-        {% endif %}
         {{ field.label }}
         {{ field }}
   {% endfor %}
     </div>
   <div class="mb-3">
-    <button class="btn btn-primary">Submit form</button>
+    <button class="btn btn-primary">Отправить</button>
   </div>
 </form>
 {% endblock content %}

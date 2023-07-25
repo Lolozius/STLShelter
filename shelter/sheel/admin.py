@@ -11,9 +11,9 @@ class PostAdmin(admin.ModelAdmin):
 
     list_display = (
         'pk',
+        'name',
         'text',
-        'author',
-        'pub_date',
+        'document',
     )
     search_fields = ('text',)
     empty_value_display = '-пусто-'
