@@ -1,1 +1,10 @@
-
+{% for post in posts %}
+<div class="card" style="width: 18rem;">
+  <img src="https://kartinki.pibig.info/uploads/posts/2023-04/thumbs/1682401753_kartinki-pibig-info-p-gendalf-kartinki-arti-pinterest-28.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{post.name}}</h5>
+    <p class="card-text">{{post.text}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+{%endfor%}
