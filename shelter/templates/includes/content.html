@@ -8,7 +8,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ post.name }}</h5>
           <p class="card-text">{{ post.text }}</p>
-          <a href="#" class="btn btn-primary">Скачать</a>
+          <a href="{% url 'shells:download_file' post.id %}" class="btn btn-primary">Скачать файл</a>
         </div>
       </div>
     </div>
