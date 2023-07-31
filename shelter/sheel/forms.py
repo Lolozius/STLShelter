@@ -1,20 +1,22 @@
 from django import forms
-from django.forms import ModelForm
-
 from .models import Post
 
 
-class PostForm(ModelForm):
+class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         labels = {
-            'name': 'Имя обьекта',
-            'text': 'Описание обьекта',
+            'name': 'Имя объекта',
+            'text': 'Описание объекта',
             'document': 'Stl файл'
+        }
+        error_messages = {
+            'required': 'Поле "Имя обьекта" обязательно для заполнения.',
+            'max_length': 'Длина имени не должна превышать 100 символов.',
         }
         help_texts = {
             'name': 'Загрузите документ',
-            'text': 'Введите описание обьекта',
+            'text': 'Введите описание объекта',
             'document': 'Укажите путь к файлу'
         }
         fields = ('name', 'text', 'document')

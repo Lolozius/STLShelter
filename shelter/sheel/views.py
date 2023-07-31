@@ -26,8 +26,6 @@ def post(request):
 
 def download_file(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-
-    # Замените 'yourfile.txt' на имя файла, которое хотите видеть при скачивании
     response = HttpResponse(post.document, content_type='application/octet-stream')
     response['Content-Disposition'] = f'attachment; filename="yourfile.stl"'
     return response

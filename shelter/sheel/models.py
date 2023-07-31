@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 User = get_user_model()
@@ -17,5 +18,6 @@ class Post(models.Model):
         verbose_name='Текст с описание',
         help_text='Распишите описание обьекта',
     )
-    document = models.FileField(upload_to='documents/')
+    document = models.FileField(upload_to='documents/', validators=[FileExtensionValidator(
+        allowed_extensions=['stl', 'jcode'])])
     #image = models.ImageField('Фото', blank=True, null=True,)
