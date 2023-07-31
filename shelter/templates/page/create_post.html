@@ -10,7 +10,7 @@
           {{ field }}
           <label class="custom-file-label" for="{{ field.id_for_label }}">Выберите файл...</label>
           {% for error in field.errors %}
-            <div class="invalid-feedback">
+            <div class="alert alert-danger" role="alert">
               {{ error }}
             </div>
           {% endfor %}
@@ -18,7 +18,7 @@
       {% else %}
         {{ field }}
         {% for error in field.errors %}
-          <div class="invalid-feedback">
+          <div class="alert alert-danger" role="alert">
             {{ error }}
           </div>
         {% endfor %}

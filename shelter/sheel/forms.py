@@ -22,7 +22,7 @@ class PostForm(forms.ModelForm):
         fields = ('name', 'text', 'document')
 
         widgets = {
-            'name': forms.Textarea(attrs={'class': 'form-control', 'rows': 1}),
-            'text': forms.Textarea(attrs={'class': 'form-control'}),
+            'name': forms.Textarea(attrs={'class': 'form-control', 'rows': 1, 'placeholder': 'Введите имя обьекта'}),
+            'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Описание обьекта'}),
             'document': forms.FileInput(attrs={'class': 'form-control'})
         }
