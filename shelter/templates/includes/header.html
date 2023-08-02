@@ -1,23 +1,19 @@
-<div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">StlShelter</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Переключатель навигации">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'shells:index' %}">Главная</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'shells:form' %}">Добавить обьект</a>
-                    </li>
-                </ul>
-                <span class="navbar-text">
-      </span>
-            </div>
+<nav class="navbar navbar-expand-lg bg-primary border rounded-bottom mb-3">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="{% url 'shells:index' %}">StlShelter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{% url 'shells:index' %}">Главная</a>
+                </li>
+                <li class="nav-item {% if request.path == '/form/' %}active{% endif %}">
+                    <a class="nav-link text-white" href="{% url 'shells:form' %}">Добавить объект</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-</div>
+    </div>
+</nav>

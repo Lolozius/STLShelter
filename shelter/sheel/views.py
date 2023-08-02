@@ -8,7 +8,7 @@ from django.http import HttpResponse
 def index(request):
     posts = Post.objects.all()
     page_obj = func_paginator(request, posts)
-    return render(request, 'page/index.html', {'posts': posts})
+    return render(request, 'page/index.html', {'page_obj': page_obj})
 
 
 def post(request):
