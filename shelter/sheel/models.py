@@ -19,9 +19,11 @@ class Post(models.Model):
         verbose_name='Текст с описание',
         help_text='Распишите описание обьекта',
     )
-    document = models.FileField(upload_to='documents/', validators=[FileExtensionValidator(
+    document = models.FileField(
+        upload_to='documents/',
+        validators=[FileExtensionValidator(
         allowed_extensions=['stl', 'jcode'])])
-    #image = models.ImageField('Фото', blank=True, null=True,)
+    #image = models.ImageField('Фото', blank=True, null=True,
 
     class Meta:
         ordering = ['-pub_date']
