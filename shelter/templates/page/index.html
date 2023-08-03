@@ -3,6 +3,7 @@
 Главная страница
 {% endblock title %}
 {% block content %}
+
 <div class="container">
     {% include 'includes/content.html' %}
     <div class="container d-flex justify-content-center align-items-center vh-50 pb-0">
@@ -11,4 +12,7 @@
         </div>
     </div>
 </div>
+<footer class="border-top text-center py-3">
+    {{ year }} {{var}}
+</footer>
 {% endblock content %}

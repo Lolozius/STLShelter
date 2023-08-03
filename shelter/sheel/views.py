@@ -29,3 +29,9 @@ def download_file(request, post_id):
     response = HttpResponse(post.document, content_type='application/octet-stream')
     response['Content-Disposition'] = f'attachment; filename="yourfile.stl"'
     return response
+
+
+def delete_object(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    post.delete()
+    return redirect('shells:index')

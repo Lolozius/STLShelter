@@ -14,6 +14,7 @@ class Post(models.Model):
         verbose_name='Имя',
         help_text='Назовите обьект',
     )
+    pub_date = models.DateTimeField(auto_now=True)
     text = models.TextField(
         verbose_name='Текст с описание',
         help_text='Распишите описание обьекта',
@@ -21,3 +22,9 @@ class Post(models.Model):
     document = models.FileField(upload_to='documents/', validators=[FileExtensionValidator(
         allowed_extensions=['stl', 'jcode'])])
     #image = models.ImageField('Фото', blank=True, null=True,)
+
+    class Meta:
+        ordering = ['-pub_date']
+
+    def __str__(self):
+        return self.text
