@@ -3,6 +3,10 @@ from .forms import PostForm
 from .paginator import func_paginator
 from .models import Post
 from django.http import HttpResponse
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+User = get_user_model()
 
 
 def index(request):
@@ -11,6 +15,7 @@ def index(request):
     return render(request, 'page/index.html', {'page_obj': page_obj})
 
 
+@login_required(login_url=settings.LOGIN_URL)
 def post(request):
     form = PostForm(
         request.POST or None,
@@ -31,6 +36,7 @@ def download_file(request, post_id):
     return response
 
 
+@login_required(login_url=settings.LOGIN_URL)
 def delete_object(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post.delete()

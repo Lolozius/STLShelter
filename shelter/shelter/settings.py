@@ -72,10 +72,6 @@ TEMPLATES = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-]
-
 WSGI_APPLICATION = 'shelter.wsgi.application'
 
 
@@ -108,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'shells:index'
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
+LOGIN_URL = 'users:login'
 
 LANGUAGE_CODE = 'Ru-ru'
 
