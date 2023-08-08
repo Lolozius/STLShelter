@@ -1,3 +1,4 @@
+import os
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import FileExtensionValidator
@@ -30,3 +31,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.text
+
+    def delete(self, *args, **kwargs):
+        # Удаление связанного файла перед удалением объекта Post
+        if self.document:
+            os.remove(self.document.path)
+        super().delete(*args, **kwargs)

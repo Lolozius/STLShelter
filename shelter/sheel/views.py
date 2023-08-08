@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+import os
 User = get_user_model()
 
 
@@ -31,9 +32,14 @@ def post(request):
 
 def download_file(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    response = HttpResponse(post.document, content_type='application/octet-stream')
-    response['Content-Disposition'] = f'attachment; filename="yourfile.stl"'
-    return response
+
+    file_path = post.document.path  # Получаем путь к файлу
+    file_name = os.path.basename(file_path)  # Извлекаем имя файла
+
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/octet-stream')
+        response['Content-Disposition'] = f'attachment; filename="{file_name}"'
+        return response
 
 
 @login_required(login_url=settings.LOGIN_URL)
