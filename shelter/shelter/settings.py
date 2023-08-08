@@ -110,7 +110,7 @@ LOGIN_URL = 'users:login'
 
 LANGUAGE_CODE = 'Ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
