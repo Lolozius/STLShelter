@@ -14,7 +14,7 @@
                     <a class="nav-link text-white" href="{% url 'shells:form' %}">Добавить объект</a>
                 </li>
                 <li class="nav-item {% if request.path == '/form/' %}active{% endif %}">
-                    <a class="nav-link text-white" href="">Вход</a>
+                    <a class="nav-link text-white" href="{% url 'users:login' %}">Вход</a>
                 </li>
             </ul>
         </div>
