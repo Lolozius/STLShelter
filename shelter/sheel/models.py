@@ -2,7 +2,7 @@ import os
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.core.validators import FileExtensionValidator
-
+from sorl.thumbnail import ImageField
 # Create your models here.
 User = get_user_model()
 
@@ -23,8 +23,10 @@ class Post(models.Model):
     document = models.FileField(
         upload_to='documents/',
         validators=[FileExtensionValidator(
-        allowed_extensions=['stl', 'jcode'])])
-    #image = models.ImageField('Фото', blank=True, null=True,
+            allowed_extensions=['stl', 'jcode'])
+        ]
+    )
+    image = models.ImageField('Фото', blank=True, null=True,)
 
     class Meta:
         ordering = ['-pub_date']
@@ -33,7 +35,13 @@ class Post(models.Model):
         return self.text
 
     def delete(self, *args, **kwargs):
-        # Удаление связанного файла перед удалением объекта Post
+        """
+         Удаление связанных файлов перед удалением объекта Post
+        """
         if self.document:
-            os.remove(self.document.path)
+            if os.path.exists(self.document.path):
+                os.remove(self.document.path)
+        if self.image:
+            if os.path.exists(self.image.path):
+                os.remove(self.image.path)
         super().delete(*args, **kwargs)

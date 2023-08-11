@@ -7,15 +7,17 @@
     transform: scale(1.05); /* Увеличиваем размеры на 5% при наведении */
   }
 </style>
-
+{% load thumbnail %}
 <div class="container">
   <div class="row">
     {% for post in page_obj %}
     {% csrf_token %}
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="card h-100 border border-3">
-        <img src="https://kartinki.pibig.info/uploads/posts/2023-04/thumbs/1682401753_kartinki-pibig-info-p-gendalf-kartinki-arti-pinterest-28.jpg"
-             class="card-img-top" alt="...">
+        {% thumbnail post.image "800x800" crop="center" upscale=False as img %}
+        <img src="{{ img.url }}"
+             class="card-img-top">
+        {% endthumbnail %}
         <div class="card-body">
           <h5 class="card-title">{{ post.name }}</h5>
           <h6 class="card-title">{{ post.pub_date }}</h6>

@@ -17,12 +17,15 @@ class PostForm(forms.ModelForm):
         help_texts = {
             'name': 'Загрузите документ',
             'text': 'Введите описание объекта',
-            'document': 'Укажите путь к файлу'
+            'document': 'Укажите путь к файлу',
+            'image': 'Фото'
+
         }
-        fields = ('name', 'text', 'document')
+        fields = ('name', 'text', 'document', 'image')
 
         widgets = {
             'name': forms.Textarea(attrs={'class': 'form-control', 'rows': 1, 'placeholder': 'Введите имя обьекта'}),
             'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Описание обьекта'}),
-            'document': forms.FileInput(attrs={'class': 'form-control'})
+            'document': forms.FileInput(attrs={'class': 'form-control'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
