@@ -8,7 +8,7 @@ class PostForm(forms.ModelForm):
         labels = {
             'name': 'Имя объекта',
             'text': 'Описание объекта',
-            'document': 'Stl файл'
+            'document': 'Загрузите файл'
         }
         error_messages = {
             'required': 'Поле "Имя обьекта" обязательно для заполнения.',
