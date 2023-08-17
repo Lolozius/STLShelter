@@ -1,23 +1,17 @@
 <style>
   .card {
-    transition: transform 0.3s; /* Добавляем плавный переход при изменении размеров */
+    transition: transform 0.3s;
   }
 
   .card:hover {
-    transform: scale(1.05); /* Увеличиваем размеры на 5% при наведении */
+    transform: scale(1.05);
   }
 </style>
-{% load thumbnail %}
 <div class="container">
   <div class="row">
     {% for post in page_obj %}
-    {% csrf_token %}
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="card h-100 border border-3">
-        {% thumbnail post.image "800x800" crop="center" upscale=False as img %}
-        <img src="{{ img.url }}"
-             class="card-img-top">
-        {% endthumbnail %}
         <div class="card-body">
           <h5 class="card-title">{{ post.name }}</h5>
           <h6 class="card-title">{{ post.pub_date }}</h6>
@@ -26,9 +20,17 @@
           {% if request.user.is_authenticated %}
           <a href="{% url 'shells:delete_file' post.id %}" class="btn btn-primary">Удалить файл</a>
           {% endif %}
+          <iframe
+            src="https://sketchfab.com/models/{{ post.sketchfab_model_id }}/embed"
+            frameborder="0"
+            allow="autoplay; fullscreen; vr"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true">
+          </iframe>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+

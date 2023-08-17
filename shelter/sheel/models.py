@@ -26,6 +26,7 @@ class Post(models.Model):
         ]
     )
     image = models.ImageField('Фото', blank=True, null=True,)
+    sketchfab_model_id = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
         ordering = ['-pub_date']

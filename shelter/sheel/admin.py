@@ -15,6 +15,7 @@ class PostAdmin(admin.ModelAdmin):
         'text',
         'document',
         'pub_date',
+        'sketchfab_model_id',
     )
     search_fields = ('text',)
     empty_value_display = '-пусто-'
