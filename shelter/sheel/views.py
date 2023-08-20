@@ -12,7 +12,7 @@ import os
 User = get_user_model()
 
 SKETCHFAB_API_URL = 'https://api.sketchfab.com/v3'
-SKETCHFAB_API_TOKEN = '2e939a95fbc243ff84ce2e18881ec999'
+SKETCHFAB_API_TOKEN = 'XXXXXXXXXXXXXX'
 
 
 def index(request):
@@ -75,6 +75,7 @@ def download_file(request, post_id):
 
     file_path = post.document.path  # Получаем путь к файлу
     file_name = os.path.basename(file_path)  # Извлекаем имя файла
+
 
     with open(file_path, 'rb') as file:
         response = HttpResponse(file.read(), content_type='application/octet-stream')
