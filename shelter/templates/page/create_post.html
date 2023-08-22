@@ -6,7 +6,7 @@
     <div class="mb-3">
       {{ field.label_tag }}
       {% if field.widget.input_type == 'file' %}
-        <div class="custom-file {% if field.errors %}is-invalid{% endif %}">
+        <div class="custom-file  {% if field.errors %}is-invalid{% endif %}">
           {{ field }}
           <label class="custom-file-label" for="{{ field.id_for_label }}">Выберите файл...</label>
           {% for error in field.errors %}
