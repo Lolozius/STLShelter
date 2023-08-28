@@ -8,7 +8,7 @@ services:
       - db_value:/var/lib/Sqllite/data/
 
   web:
-    image: .
+    build: ../shelter
     restart: always
     volumes:
       - static_value:/app/static/

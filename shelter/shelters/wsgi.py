@@ -1,5 +1,5 @@
 """
-WSGI config for shelter project.
+WSGI config for shelters project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shelter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shelters.settings')
 
 application = get_wsgi_application()

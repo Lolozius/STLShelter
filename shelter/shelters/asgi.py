@@ -1,5 +1,5 @@
 """
-ASGI config for shelter project.
+ASGI config for shelters project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shelter.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'shelters.settings')
 
 application = get_asgi_application()
