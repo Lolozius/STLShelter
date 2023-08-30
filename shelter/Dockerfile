@@ -1,4 +1,4 @@
-FROM python:3.11.4-slim
+FROM python:3.11.4-alpine
 
 WORKDIR /app
 
@@ -6,6 +6,6 @@ COPY requirements.txt /
 
 RUN pip install -r /requirements.txt --no-cache-dir
 
-COPY . .
+COPY . /app
 
-CMD ["gunicorn", "shelter.wsgi.application", "--bind", "0:8000" ]
+CMD ["python3", "manage.py", "runserver", "0:8000"]

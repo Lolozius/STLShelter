@@ -23,11 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j+kl#_9f%bu85@+xa=glx2^k*mmt)271q$nvnqhh*fz7u2qww-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web']
-
-
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1', 'http://web', 'http://localhost']
 # Application definition
 
 INSTALLED_APPS = [
@@ -127,9 +126,8 @@ POST_LIMIT = 6
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_ROOT = '/var/www/example.com/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
